@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function()
+        {
+            console.log("Hola");          
+            //Todo lo que se llame p
+            //cuando se haga click
+            //ejecute esta funcion
+            $('p').click(function()
+            {
+                var texto = $(this).html();
+                $.ajax({
+                    type: "GET",
+                    url: "procesarDatos.php",
+                    data: {
+                        dato: texto
+                        },
+                    success: function (response) {
+                        alert("Dato guardado");   
+                    }
+                });
+                $(this).addClass("tachado");                
+            }
+            )
+        }
+        );
+
+    </script>
+    <style>
+
+        .tachado
+        {
+            text-decoration: line-through;
+        }
+    </style>
+
+
+    <title>Document</title>
+</head>
+<body>
+    <a href="verDato.php">Ver Dato</a>
+    <p>Uno</p>
+    <p>Dos</p>
+    <p>Tres</p>
+    <p>Cuatro</p>
+    <p>Cuatro</p>
+    <p>Cuatro</p>
+    <p>Cuatro</p>
+    <p>Cuatro</p>
+    <p>Cuatro</p>
+    <p>Cuatro</p>
+   
+</body>
+</html>
