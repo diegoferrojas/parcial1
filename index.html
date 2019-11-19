@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login </title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="myRIA.js"></script>
+    
+
+</head>
+<body>
+    <div class="contenedor-form">
+        <div class="toggle">
+            <span> Crear Cuenta</span>
+        </div>
+        
+        <div class="formulario">
+            <h2>Iniciar Sesión</h2>
+            <form action="./Tareas.html">
+                <input type="text" placeholder="Usuario" required>
+                
+                <input type="submit" value="Iniciar Sesión">
+            </form>
+        </div>
+        
+        <div class="formulario">
+            <h2>Crea tu Cuenta</h2>
+            <form id="form" method="post" >
+                <input type="text" placeholder="Usuario" required>               
+                <input type="submit" type="button" value="Registrarse">
+            </form>   
+                
+        </div>  
+        
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>   
+    
+    <script src="js/main.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+            // click on button submit
+            $("#submit").on('click', function(){
+                // send ajax
+                $.ajax({
+                    url: 'test.php', // url where to submit the request
+                    type : "POST", // type of action POST || GET
+                    dataType : 'json', // data type
+                    data : $("#form").serialize(), // post data || get data                
+                    success : function(result) {
+                        // you can see the result from the console
+                        // tab of the developer tools
+                        console.log(result);
+                    },
+                    error: function(xhr, resp, text) {
+                        console.log(xhr, resp, text);
+                    }
+                })
+            });
+        });
+    
+    </script>
+    
+        
+      
+</body>
+
+</html>
